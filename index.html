@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link href="style.css"  rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
+
 <body>
 
-    <div class="whole">
-        <h1>Password Generator</h1>
-        <div class="display">hi
-            <div> okh</div>
+    <div class="whole m-10 ">
+        <h1 class="text-2xl text-white font-bold">Password Generator</h1>
+        <div class="display flex w-100 h-10 mt-8 border-3 rounded-xl relative size-6">
+
+            <div class="absolute inset-y-0 right-0"> image will come </div>
         </div>
-        
+        <div class="w-98 h-2 border-1 mt-1 bg-purple-500"></div>
+
+        <div class="password mt-8 border-3 w-100 h-100 p-3">
+
+            <div class="flex gap-60">
+                <h1>Password Length </h1>
+                <h1>?</h1>
+            </div>
+
+            <div class="inputs flex flex-col space-y-2">
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="box1" name="box1" checked />
+                    <label for="box1">Include Uppercase</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="box2" name="box2" />
+                    <label for="box2">Include lowercase</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="box3" name="box3" />
+                    <label for="box3">Include Number</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="box4" name="box4" />
+                    <label for="box4">Include Symbol</label>
+                </div>
+
+            </div>
+
+            <div></div>
+
+
+        </div>
+
 
     </div>
 
 
-    
+
 </body>
+
 </html>
