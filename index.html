@@ -5,75 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <div class="whole m-10 ">
-        <h1 class="text-2xl text-white font-bold">Password Generator</h1>
-        <div class="ShowPass flex w-100 h-10 mt-8 border-3 rounded-xl relative size-6">
-
-            <div class="absolute inset-y-0 right-0"> image will come </div>
+    <div class="container">
+        <div class="card">
+            <h1 class="title"><i class="fas fa-lock emoji"></i> Ultra Secure Password Generator</h1>
+            
+            <div class="password-display">
+                <div class="password-text" id="passwordText">Your password will appear here...</div>
+                <button class="copy-btn tooltip" id="copyButton">
+                    <i class="fas fa-copy"></i>
+                    <span class="tooltiptext">Copy to clipboard</span>
+                </button>
+            </div>
+            
+            <div class="strength-meter">
+                <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            
+            <div class="options-panel">
+                <div class="option-header">
+                    <span>Password Length</span>
+                    <span class="length-value" id="lengthValue">7</span>
+                </div>
+                
+                <div class="slider-container">
+                    <input type="range" min="4" max="20" value="7" class="slider" id="lengthSlider">
+                </div>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="uppercase" checked>
+                        <label for="uppercase"><i class="fas fa-font"></i> Uppercase Letters</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="lowercase">
+                        <label for="lowercase"><i class="fas fa-font"></i> Lowercase Letters</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="numbers">
+                        <label for="numbers"><i class="fas fa-hashtag"></i> Numbers</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="symbols">
+                        <label for="symbols"><i class="fas fa-asterisk"></i> Symbols</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="strength-container">
+                <span class="strength-label">STRENGTH</span>
+                <div class="strength-indicator">
+                    <span class="strength-text" id="strengthText">MEDIUM</span>
+                    <div class="strength-dots">
+                        <div class="dot" id="dot1"></div>
+                        <div class="dot" id="dot2"></div>
+                        <div class="dot" id="dot3"></div>
+                        <div class="dot" id="dot4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="generate-btn" id="generateButton">
+                <i class="fas fa-key"></i> Generate Secure Password
+            </button>
         </div>
-        <div class="w-98 h-2 border-1 mt-1 bg-purple-500"></div>
-
-        <div class="password mt-8 border-3 w-100 h-100 p-3">
-
-            <div class="flex gap-60">
-                <h1>Password Length </h1>
-                <h1 class="ChangeLength">7</h1>
-            </div>
-
-            <input type="range" id="length" min="4" max="20" value="7"
-                class="w-full accent-purple-500 cursor-pointer" onchange="Display(value)" />
-
-            <div class="inputs flex flex-col space-y-2 cursor-pointer">
-
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" id="box1" name="box1" checked />
-                    <label for="box1">Include Uppercase</label>
-                </div>
-
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" id="box2" name="box2" />
-                    <label for="box2">Include lowercase</label>
-                </div>
-
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" id="box3" name="box3" />
-                    <label for="box3">Include Number</label>
-                </div>
-
-                <div class="flex items-center space-x-2 cursor-pointer">
-                    <input type="checkbox" id="box4" name="box4" />
-                    <label for="box4">Include Symbol</label>
-                </div>
-
-            </div>
-            <br>
-            <div class="flex items-center justify-between mt-4">
-                <span class="font-semibold">Strength</span>
-
-                <!-- Circle -->
-                <div class=" Circle w-6 h-6 rounded-full border-2 border-black bg-yellow-500"></div>
-            </div>
-
-
-            <button
-                id ="Generator"class=" border-3 mt-10 w-full bg-purple-500 text-white font-semibold  p-3 rounded-3xl hover:bg-blue-500 cursor-pointer">Generate 
-                password </button>
-
-
-        </div>
-
-
     </div>
 
-    <script src="app.js"></script>
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> Password copied to clipboard!
+    </div>
 
+    <div class="fireworks" id="fireworks"></div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
